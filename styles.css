@@ -3,7 +3,20 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  background-color: #FFF9EE;
+  background-color: var(--bg-accent);
+  background-image:
+    radial-gradient(circle at 18% 10%, rgba(247, 238, 231, 0.88) 0, rgba(247, 238, 231, 0) 28%),
+    radial-gradient(circle at 82% 12%, rgba(123, 89, 66, 0.16) 0, rgba(123, 89, 66, 0) 28%),
+    radial-gradient(circle at 42% 0%, rgba(244, 205, 150, 0.16) 0, rgba(244, 205, 150, 0) 18%),
+    linear-gradient(180deg, rgba(246, 239, 233, 0.22) 0%, rgba(246, 239, 233, 0) 24%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(91, 63, 45, 0.05) 0,
+      rgba(91, 63, 45, 0.05) 1px,
+      transparent 1px,
+      transparent 116px
+    ),
+    linear-gradient(180deg, #e8d8cb 0%, #d9c1b1 100%);
   color: #4a3c31;
   line-height: 1.8;
   overflow-x: hidden;
@@ -13,10 +26,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== VARIABLES ===== */
 :root {
-  --primary-color: #FFF1CF;
+  --primary-color: #ceb29f;
   --accent-color: #f7a731;
   --text-color: #4a3c31;
-  --bg-accent: #FFF9EE;
+  --bg-accent: #e1d0c3;
+  --paper-warm: rgba(249, 240, 232, 0.78);
+  --wood-grain: rgba(92, 63, 45, 0.08);
   --white: #ffffff;
   --radius: 16px;
   --shadow: 0 4px 24px rgba(74,60,49,0.10);
@@ -39,8 +54,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--primary-color);
+  background:
+    linear-gradient(180deg, rgba(245, 235, 227, 0.78), rgba(206, 178, 159, 0.94)),
+    var(--primary-color);
   box-shadow: 0 2px 12px rgba(74,60,49,0.10);
+  border-bottom: 1px solid rgba(92, 63, 45, 0.12);
 }
 header .container {
   display: flex;
@@ -104,7 +122,11 @@ nav ul li a:hover::after { width: 100%; }
 .hero {
   position: relative;
   min-height: 100svh;
-  background: var(--primary-color);
+  background:
+    linear-gradient(135deg, rgba(245, 236, 228, 0.76), rgba(206, 178, 159, 0.9)),
+    radial-gradient(circle at 76% 22%, rgba(86, 58, 40, 0.16), transparent 32%),
+    radial-gradient(circle at 22% 10%, rgba(243, 201, 145, 0.16), transparent 20%),
+    var(--primary-color);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -175,7 +197,11 @@ nav ul li a:hover::after { width: 100%; }
   text-align: center;
 }
 .text-center { text-align: center; }
-.bg-accent { background: var(--primary-color); }
+.bg-accent {
+  background:
+    linear-gradient(180deg, rgba(246, 238, 231, 0.62), rgba(206, 178, 159, 0.9)),
+    var(--primary-color);
+}
 
 /* ===== ABOUT ===== */
 .about-grid {
@@ -216,9 +242,11 @@ nav ul li a:hover::after { width: 100%; }
 .gallery-item {
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--white);
+  background:
+    linear-gradient(180deg, rgba(251, 245, 239, 0.98), rgba(241, 230, 220, 0.96));
   box-shadow: var(--shadow);
   transition: transform .3s;
+  border: 1px solid var(--wood-grain);
 }
 .gallery-item:hover { transform: translateY(-6px); }
 .gallery-item img {
@@ -248,6 +276,18 @@ nav ul li a:hover::after { width: 100%; }
 }
 
 /* ===== MENU / INSTA ===== */
+.menu-intro {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.menu-intro-line {
+  display: block;
+  white-space: nowrap;
+}
+.menu-intro small {
+  display: block;
+  margin-top: 4px;
+}
 .insta-banner {
   display: inline-flex;
   align-items: center;
@@ -288,6 +328,22 @@ nav ul li a:hover::after { width: 100%; }
   letter-spacing: .06em;
 }
 .access-info p { font-size: .95rem; }
+.hours-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+.hours-line {
+  font-size: .95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.7;
+}
+.hours-note {
+  display: block;
+  font-weight: 400;
+  color: #5a4e45;
+}
 .social-links { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
 .btn {
   display: inline-flex;
@@ -366,6 +422,9 @@ footer { background: var(--text-color); color: #eddfc4; padding: 0 0 40px; }
   .bg-item.item-5 { width: 36%; top: 55%; left: 60%; }
 
   .section { padding: 56px 0; }
+  .menu-intro {
+    font-size: .9rem;
+  }
   .gallery-carousel {
     display: flex;
     gap: 0;
@@ -388,6 +447,10 @@ footer { background: var(--text-color); color: #eddfc4; padding: 0 0 40px; }
   /* Access — no horizontal scroll */
   .access-grid { gap: 24px; }
   .map-container iframe { height: 280px; }
+  .hours-line { font-size: .92rem; }
+  .hours-note {
+    font-size: .9rem;
+  }
 
   .social-links { align-items: stretch; }
   .btn { justify-content: center; }
